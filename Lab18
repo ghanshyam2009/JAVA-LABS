@@ -1,0 +1,47 @@
+import java.util.Scanner;
+
+class Person{
+    public String Name;
+    public int Age;
+
+    public Person(String Name, int Age){
+        this.Name = Name;
+        this.Age = Age;
+    }
+}
+
+class Employee extends Person{
+    public String Expertize;
+    public int Salary;
+
+    public Employee(String Name, int Age, String Expertize, int Salary){
+        super(Name, Age);
+        this.Salary = Salary;
+        this.Expertize = Expertize;
+
+        if(this.Salary > 5000){
+            System.out.println("Name of Employee: " + super.Name);
+        }
+    }
+}
+
+public class EmployeePersonInheritance {
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        for (int i = 1; i <= 5; i++) {
+        	System.out.println("Enter Name : ");
+            String Name = sc.next();
+            System.out.println("Enter Age : ");
+            int Age = sc.nextInt();
+            System.out.println("Enter Expertize : ");
+            String Expertize = sc.next();
+            System.out.println("Enter Salary : ");
+            int Salary = sc.nextInt();
+            Employee employee = new Employee(Name, Age, Expertize, Salary);
+        }
+
+        sc.close();
+    }
+}
