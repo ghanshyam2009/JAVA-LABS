@@ -1,0 +1,56 @@
+
+import java.util.HashSet;
+import java.util.Scanner;
+
+public class LongestConsecutiveSequence {
+    public static int findLongestConsecutiveSequence(int[] nums) {
+        HashSet<Integer> set = new HashSet<>();
+
+        // Add all elements to the set
+        for (int num : nums) {
+            set.add(num);
+        }
+
+        int longestSequence = 0;
+
+        // Iterate over each element in the array
+        for (int num : nums) {
+            // Check if the previous number (num-1) is present in the set
+            if (!set.contains(num - 1)) {
+                int currentNum = num;
+                int currentSequence = 1;
+
+                // Check for consecutive elements by incrementing currentNum
+                while (set.contains(currentNum + 1)) {
+                    currentNum++;
+                    currentSequence++;
+                }
+
+                // Update longestSequence if a longer sequence is found
+                longestSequence = Math.max(longestSequence, currentSequence);
+            }
+        }
+
+        return longestSequence;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        
+        System.out.print("Enter the number of elements in the array: ");
+        int size = scanner.nextInt();
+        
+        int[] nums = new int[size];
+        
+        System.out.println("Enter the elements of the array:");
+        for (int i = 0; i < size; i++) {
+            nums[i] = scanner.nextInt();
+        }
+        
+        int length = findLongestConsecutiveSequence(nums);
+        System.out.println("Length of the longest consecutive sequence: " + length);
+    }
+}
+
+
+
