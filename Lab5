@@ -1,0 +1,79 @@
+
+import java.util.Scanner;
+
+abstract class Marks{
+	abstract double getpercentage();
+	
+}
+
+class A extends Marks{
+	private double subject1;
+	private double subject2;
+	private double subject3;
+	
+	double getpercentage() {
+		double totalmarks = subject1 + subject2 + subject3;
+		return (totalmarks*100)/300;
+	}
+	
+	public A (double subject1, double subject2, double subject3) {
+	this.subject1 = subject1;
+	this.subject2 = subject2;
+	this.subject3 = subject3;
+	}
+}
+
+class B extends Marks {
+	private double subject1;
+	private double subject2;
+	private double subject3;
+	private double subject4;
+	
+	double getpercentage() {
+		double totalmarks = subject1 + subject2 + subject3 + subject4;
+		return (totalmarks*100)/400;
+	}
+	
+	public B (double subject1, double subject2, double subject3, double subject4) {
+	this.subject1 = subject1;
+	this.subject2 = subject2;
+	this.subject3 = subject3;
+	this.subject4 = subject4;
+	}
+}
+
+public class StudentMarks {
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
+		System.out.println("Enter 3 subject marks for A : ");
+		System.out.println("Subject1A : ");
+		double subject1A = sc.nextDouble();
+		System.out.println("Subject2A : ");
+		double subject2A = sc.nextDouble();
+		System.out.println("Subject3A : ");
+		double subject3A = sc.nextDouble();
+		
+		System.out.println("Enter 4 subject marks for B : ");
+		System.out.println("Subject1B : ");
+		double subject1B = sc.nextDouble();
+		System.out.println("Subject2B : ");
+		double subject2B = sc.nextDouble();
+		System.out.println("Subject3B : ");
+		double subject3B = sc.nextDouble();
+		System.out.println("Subject4B : ");
+		double subject4B = sc.nextDouble();
+		
+		A studentA = new A(subject1A, subject2A, subject3A);
+		B studentB = new B(subject1B, subject2B, subject3B,  subject4B);
+		
+		double percentageA = studentA.getpercentage();
+		double percentageB = studentB.getpercentage();
+		
+		System.out.println("Percentage of A are : " + percentageA);
+		System.out.println("Percentage of B are : " + percentageB);
+		
+		sc.close();
+	}
+}
+
