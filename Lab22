@@ -1,0 +1,38 @@
+
+class Person123{
+	
+	String FirstName;
+	String LastName;
+	
+	public void getFirstName(String FirstName) {
+		this.FirstName = FirstName;
+		System.out.println("Person first name is " + FirstName);
+	}
+
+	public void getLastName(String LastName) {
+		this.LastName = LastName;
+		System.out.println("Person last name is " + LastName);
+	}	
+}
+
+
+class Employee123 extends Person123{
+	String JobTitle;
+	public void getLastName(String JobTitle) {
+		this.JobTitle = JobTitle;
+		System.out.println("Employee job title is " + JobTitle);
+	}
+
+}
+
+public class PersonEmployee {
+	public static void main(String[] args) {
+		Person123 P1 = new Person123();
+		P1.getFirstName("Rahul");
+		P1.getLastName("Baird");
+		
+		Employee123 E1 = new Employee123();
+		E1.getFirstName("Alexa");
+		E1.getLastName("Boss");
+	}
+}
