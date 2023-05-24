@@ -1,0 +1,27 @@
+
+class Arithmetic {
+    public int add(int a, int b) {
+        return a + b;
+    }
+}
+
+class Adder extends Arithmetic {
+}
+
+public class TesterArithmeticAdder {
+    public static void main(String[] args) {
+        Adder adder = new Adder();
+
+        // Print the superclass name
+        System.out.println("My superclass is: " + adder.getClass().getSuperclass().getName());
+
+        // Perform addition using the add method from the superclass
+        int num1 = 42;
+        int num2 = 13;
+        int sum = adder.add(num1, num2);
+
+        // Print the inputs and the sum
+        System.out.println(num1 + " " + num2 + " " + sum);
+    }
+}
+
