@@ -1,0 +1,35 @@
+
+class Videotape{
+    public  String Title;
+    public int Length;
+    public Boolean Available;
+
+    void show(){
+        System.out.println("We are in VideoTape");
+    }
+}
+
+class MusicVideo extends Videotape{
+    public String ArtistCategory;
+    void show(){
+        System.out.println("We are in MusicVideo");
+    }
+}
+
+class Movie extends Videotape{
+    public int DirectorRating;
+    void show(){
+        System.out.println("We are in Movie");
+    }
+}
+public class VideoTapeInheritance {
+    public static void main(String[] args) {
+    	Movie M1 = new Movie();
+    	M1.show();
+    	Videotape V1 = new Videotape();
+    	V1.show();
+    	MusicVideo MV1 = new MusicVideo();
+    	MV1.show();
+    }
+}
+
