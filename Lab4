@@ -1,0 +1,48 @@
+
+import java.util.Scanner;
+
+interface Vehicle{
+	void move();
+}
+class Helicopter implements Vehicle{
+	public void move() {
+		System.out.println("Helicopter flies in the air");
+	}
+}
+class Car implements Vehicle{
+	public void move() {
+		System.out.println("Car drives on road");
+	}
+}
+class Train implements Vehicle{
+	public void move() {
+		System.out.println("Train runs on tracks");
+	}
+}
+public class VehicleOrder {
+	public static void main(String[] args) {
+		System.out.println("Place our order : 1 for Helicopter, 2 for Car, 3 for Train : ");
+		Scanner sc = new Scanner(System.in);
+		int order = sc.nextInt();
+		
+		if(order != 1 && order != 2 && order != 3) {
+			System.out.println("Please make a valid order");
+		}
+		else if(order == 1) {
+			System.out.println("You ordered Helicopter");
+			Helicopter H1 = new Helicopter();
+			H1.move();
+		}
+		else if(order == 2) {
+			System.out.println("You ordered Car");
+			Car C1 = new Car();
+			C1.move();
+		}
+		else if(order == 3) {
+			System.out.println("You ordered Train");
+			Train T1 = new Train();
+			T1.move();
+		}
+		sc.close();
+	}
+}
