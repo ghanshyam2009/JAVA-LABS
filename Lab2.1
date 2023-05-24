@@ -1,0 +1,38 @@
+import java.util.*;
+
+public class DuplicateWordsCounter {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.print("Enter a string: ");
+        String input = scanner.nextLine();
+
+        // Remove punctuation and convert to lowercase
+        String cleanedInput = input.replaceAll("[^a-zA-Z ]", "").toLowerCase();
+
+        // Split the input into words
+        String[] words = cleanedInput.split("\\s+");
+
+        // Count the occurrence of each word
+        Map<String, Integer> wordCount = new HashMap<>();
+        for (String word : words) {
+            if (wordCount.containsKey(word)) {
+                wordCount.put(word, wordCount.get(word) + 1);
+            } else {
+                wordCount.put(word, 1);
+            }
+        }
+
+        // Count the number of duplicate words
+        int duplicateCount = 0;
+        for (int count : wordCount.values()) {
+            if (count > 1) {
+                duplicateCount++;
+            }
+        }
+
+        // Print the result
+        System.out.println("Number of duplicate words: " + duplicateCount);
+    }
+}
+
